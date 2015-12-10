@@ -7,6 +7,9 @@ $hidden: hidden;
 $bg_cover: contain;
 $center: center;
 $no_repeat: no-repeat;
+$zero: 0;
+
+$black: #000;
 
 img {
   max-width: $full;
@@ -14,6 +17,9 @@ img {
 
 .mdl-cell {
   overflow: $hidden;
+  &:hover {
+    border-bottom: 10px solid $black;
+  }
 
   h2 {
     text-align: $center;
