@@ -1,0 +1,11 @@
+<div class="mdl-layout__container">
+<div class="mdl-grid">
+  <% @products.each do |product| %>
+  <div class="mdl-cell mdl-cell--4-col">
+    <h2><%= product.name %></h2>
+    <p><%= product.description %></p>
+    <p><%= number_to_currency(product.price) %></p>
+  </div>
+  <% end %>
+</div>
+</div>
