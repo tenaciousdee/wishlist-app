@@ -1,1 +1,27 @@
-new.html.erb
+<div class="mdl-layout__container">
+  <h1>Create a new product</h1>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--8-col">
+      <%= form_tag '/products', method: :post, multipart: true do %>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--8-col">
+        <%= label_tag :name, nil, class: "mdl-textfield__label" %>
+        <%= text_field_tag :name, nil, class: "mdl-textfield__input" %>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-cell--8-col">
+        <%= label_tag :description, nil, class: "mdl-textfield__label" %>
+        <%= text_area_tag :description, nil, class: "mdl-textfield__input" %>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--8-col">
+        <%= label_tag :price, nil, class: "mdl-textfield__label" %>
+        <%= text_field_tag :price, nil, class: "mdl-textfield__input" %>
+      </div>
+      <div class="mdl-cell--8-col">
+        <%= file_field_tag 'image' %>
+      </div>
+      <div class="mdl-cell--8-col">
+        <%= button_tag "Create New Product", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
