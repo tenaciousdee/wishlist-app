@@ -4,6 +4,9 @@
 
 $full: 100%;
 $hidden: hidden;
+$bg_cover: contain;
+$center: center;
+$no_repeat: no-repeat;
 
 img {
   max-width: $full;
@@ -11,4 +14,22 @@ img {
 
 .mdl-cell {
   overflow: $hidden;
+
+  h2 {
+    text-align: $center;
+  }
+
+  .product-image-index {
+    height: 20em; 
+    background-size: $bg_cover;
+    background-position: $center;
+    background-repeat: $no_repeat;
+  }
+
+  .product-image-single {
+    height: 40em; 
+    background-size: $bg_cover;
+    background-position: $center;
+    background-repeat: $no-repeat;
+  }
 }
