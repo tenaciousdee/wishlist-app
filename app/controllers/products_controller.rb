@@ -27,7 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.update(
+    @product = Product.find_by(id: params[:id])
+    @product.update(
       name: params[:name],
       description: params[:description],
       price: params[:price],
@@ -38,5 +39,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find_by(id: params[:id])
+    @product.destroy
+
+    redirect_to action: "index"
   end
 end
