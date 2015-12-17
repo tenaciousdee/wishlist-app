@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
       image: params[:image]
       )
 
+    flash[:success] = "Product was successfully created"
     redirect_to action: "index"
   end
 
