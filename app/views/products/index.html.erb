@@ -3,9 +3,9 @@
 <div class="mdl-grid">
   <% @products["products"].each do |product| %>
   <div class="mdl-cell mdl-cell--4-col">
-  <p><%= product["name"] %></p>
-  <a href='/products/<%= product["id"] %>'>
-    <div class="product-image-index" style="background-image: url('<%= product["image"]["sizes"]["Best"]["url"] %>');"></div></a>
+    <a href='/products/<%= product["id"] %>'>
+      <div class="product-image-index" style="background-image: url('<%= product["image"]["sizes"]["Best"]["url"] %>');"></div></a>
+      <p><%= product["name"] %></p>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
