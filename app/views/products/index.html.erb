@@ -1,11 +1,24 @@
 <h1>Products</h1>
 
-<div class="mdl-grid">
-  <% @products["products"].each do |product| %>
-  <div class="mdl-cell mdl-cell--4-col">
-    <a href='/products/<%= product["id"] %>'>
-      <div class="product-image-index" style="background-image: url('<%= product["image"]["sizes"]["Best"]["url"] %>');"></div></a>
-      <p><%= product["name"] %></p>
-    </div>
-    <% end %>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+  <%= form_tag '/search', method: :post do %>
+  <%= label_tag :input_search, "", class: "mdl-button mdl-js-button mdl-button--icon" %>
+  <i class="material-icons">search</i>
+  <div class="mdl-textfield__expandable-holder">
+    <%= text_field_tag :input_search, nil, class: "mdl-textfield__input", placeholder: "Search" %>
   </div>
+  <% end %>
+</div>
+
+
+
+<% if @products.length > 0 %>
+<div class="mdl-grid">
+  <% @products.each do |product| %>
+  <div class="mdl-cell mdl-cell--4-col">
+    <p><%= product["name"] %></p>
+    <a href='/products/<%= product["id"] %>'><div class="product-image-index" style="background-image: url('<%= product.image.url %>');"></div></a>
+  </div>
+  <% end %>
+</div>
+<% end %>

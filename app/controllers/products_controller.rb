@@ -1,22 +1,21 @@
 class ProductsController < ApplicationController
   def index
-    @products = Unirest.get("http://api.shopstyle.com/api/v2/products?pid=uid9904-31996852-79&limit=50").body
-  end
+    client = Shopsense::API.new('partner_id' => 'uid9904-31996852-79')
+    response = client.search("women", index = 0, num_results = 50)
+
+    raw_products = JSON.parse(response)["products"]
+
+    @products = raw_products.map do |product|
+      product = OpenStruct.new(product)
+      image = product.images.find { |i| i["sizeName"] == 'Original' }
+      product.image = OpenStruct.new(image)
+      product
+    end
 
   def new
-    # @product = Product.new
   end
 
   def create
-    # @product = Product.create(
-    #   name: params[:name],
-    #   description: params[:description],
-    #   price: params[:price],
-    #   image: params[:image]
-    #   )
-
-    # flash[:success] = "Product was successfully created"
-    # redirect_to action: "index"
   end
 
   def show
@@ -24,25 +23,31 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    # @product = Product.find_by(id: params[:id])
   end
 
   def update
-    # @product = Product.find_by(id: params[:id])
-    # @product.update(
-    #   name: params[:name],
-    #   description: params[:description],
-    #   price: params[:price],
-    #   image: params[:image]
-    #   )
-
-    # redirect_to action: "show"
   end
 
   def destroy
-    # @product = Product.find_by(id: params[:id])
-    # @product.destroy
-
-    # redirect_to action: "index"
   end
+
+  def search
+    if params[:input_search]
+      client = Shopsense::API.new({'partner_id' => 'uid9904-31996852-79'})
+      response = client.search(params[:input_search])
+      raw_products = JSON.parse(response)["products"]
+      puts raw_products.inspect
+
+      @products = raw_products.map do |product|
+      product = OpenStruct.new(product)
+      image = product.images.find { |i| i["sizeName"] == 'Original' }
+      product.image = OpenStruct.new(image)
+      product
+    end
+      @search = params[:input_search]
+    end
+
+    render :index
+  end
+end
 end

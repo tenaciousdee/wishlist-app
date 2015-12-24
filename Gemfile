@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'unirest'
-gem 'shopsense-ruby', '~> 0.1.2'
+# gem 'shopsense-ruby', '~> 0.1.2'
 gem 'carrierwave'
 gem 'devise'
 # Use jquery as the JavaScript library
@@ -49,3 +49,4 @@ group :development do
   gem 'spring'
 end
 
+gem "shopsense-ruby", require: 'shopsense'
