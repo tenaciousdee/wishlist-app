@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     client = Shopsense::API.new('partner_id' => 'uid9904-31996852-79')
-    response = client.search("women", index = 0, num_results = 50)
+    response = client.search("new", index = 0, num_results = 15)
 
     raw_products = JSON.parse(response)["products"]
 
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   def search
     if params[:input_search]
       client = Shopsense::API.new({'partner_id' => 'uid9904-31996852-79'})
-      response = client.search(params[:input_search])
+      response = client.search(params[:input_search], index = 0, num_results = 50)
       raw_products = JSON.parse(response)["products"]
       puts raw_products.inspect
 
