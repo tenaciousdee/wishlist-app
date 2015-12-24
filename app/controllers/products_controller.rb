@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Unirest.get("http://api.shopstyle.com/api/v2/products?pid=uid9904-31996852-79&limit=30").body
+    @products = Unirest.get("http://api.shopstyle.com/api/v2/products?pid=uid9904-31996852-79&limit=50").body
   end
 
   def new

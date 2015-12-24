@@ -17,9 +17,6 @@ img {
 
 .mdl-cell {
   overflow: $hidden;
-  &:hover {
-    border-bottom: 10px solid $black;
-  }
 
   h2 {
     text-align: $center;

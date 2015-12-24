@@ -1,10 +1,9 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--8-col">
-    <div class="product-image-single" style="background-image: url('<%= @product.image %>');"></div>
+    <div class="product-image-single" style="background-image: url('<%= @product["image"]["sizes"]["Best"]["url"] %>');"></div>
     </div>
     <div class="mdl-cell mdl-cell--4-col">
-    <h2><%= @product.name %></h2>
-    <p><%= @product.description %></p>
-    <p><%= number_to_currency(@product.price) %></p>
+    <h2><%= @product["name"] %></h2>
+    <p><%= number_to_currency(@product["price"]) %></p>
   </div>
 </div>

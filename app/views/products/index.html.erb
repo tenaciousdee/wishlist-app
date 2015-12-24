@@ -1,10 +1,11 @@
+<h1>Products</h1>
+
 <div class="mdl-grid">
-  <% @products.each do |product| %>
+  <% @products["products"].each do |product| %>
   <div class="mdl-cell mdl-cell--4-col">
-    <div class="product-image-index" style="background-image: url('<%= product.image %>');">
-      <h2><%= product.name %></h2>
-      <p><%= number_to_currency(product.price) %></p>
+  <p><%= product["name"] %></p>
+  <a href='/products/<%= product["id"] %>'>
+    <div class="product-image-index" style="background-image: url('<%= product["image"]["sizes"]["Best"]["url"] %>');"></div></a>
     </div>
-  </div>
   <% end %>
 </div>
