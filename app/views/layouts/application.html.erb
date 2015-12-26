@@ -8,16 +8,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-    <div class="mdl-layout__drawer">
-      <a href="/"><span class="mdl-layout-title">Wishlist</span></a>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="/lists/new">Create a new Wish List</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
-    </div>
+      <div class="row">
+        <div class="col l2">
+          <a href="/" class="brand-logo">Wishlist</a>
+          <ul id="nav-mobile" class="side-nav-fixed">
+            <li><a href="/lists/">All Lists</a></li>
+            <li><a href="/lists/new">Create a new List</a></li>
+          </ul>
+        </div>
 
     <% flash.each do |name, message| %>
     <div class="alert alert-<%= name %> alert-dismissible" role="alert">
@@ -26,10 +24,14 @@
     </div>
     <% end %>
 
-    <main class="mdl-layout__content">
-      <%= yield %>
-    </main>
-    </div>
+    <main>
+      <div class="container">
+        <div class="col l10">
+          <%= yield %>
+        </div>
+      </div>
+  </main>
+  </div>
 
 </body>
 </html>

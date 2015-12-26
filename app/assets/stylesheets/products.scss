@@ -11,12 +11,14 @@ $zero: 0;
 
 $black: #000;
 
+
 img {
   max-width: $full;
 }
 
-.mdl-cell {
+.product {
   overflow: $hidden;
+  padding: 3em $zero;
 
   h2 {
     text-align: $center;

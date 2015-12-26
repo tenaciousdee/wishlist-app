@@ -1,1 +1,12 @@
 <h1>My Lists</h1>
+
+<% if @lists.length > 0 %>
+<div class="mdl-grid">
+  <% @lists.each do |list| %>
+  <div class="mdl-cell mdl-cell--4-col">
+  <a href="/lists/<%= list.id %>"><h3><%= list.name %></h3></a>
+  <p><%= list.description %></p>
+  </div>
+  <% end %>
+</div>
+<% end %>

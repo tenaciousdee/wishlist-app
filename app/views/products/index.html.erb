@@ -1,24 +1,22 @@
 <h1>Products</h1>
 
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
   <%= form_tag '/search', method: :post do %>
-  <%= label_tag :input_search, "", class: "mdl-button mdl-js-button mdl-button--icon" %>
-  <i class="material-icons">search</i>
+  <%= label_tag :input_search, "" %>
+  <i class="material-icons">search</i></label>
   <div class="mdl-textfield__expandable-holder">
-    <%= text_field_tag :input_search, nil, class: "mdl-textfield__input", placeholder: "Search" %>
+    <%= text_field_tag :input_search, nil, class: "input-field" %>
   </div>
   <% end %>
-</div>
 
 
 
-<% if @products.length > 0 %>
-<div class="mdl-grid">
-  <% @products.each do |product| %>
-  <div class="mdl-cell mdl-cell--4-col">
-    <p><%= product["name"] %></p>
-    <a href='/products/<%= product["id"] %>'><div class="product-image-index" style="background-image: url('<%= product.image.url %>');"></div></a>
-  </div>
-  <% end %>
-</div>
-<% end %>
+    <% if @products.length > 0 %>
+     <div class="row">
+      <% @products.each do |product| %>
+      <div class="col l4 product">
+
+        <a href='/products/<%= product["id"] %>'><div class="product-image-index" style="background-image: url('<%= product.image.url %>');"></div></a>
+      </div>
+      <% end %>
+      </div>
+    <% end %>
