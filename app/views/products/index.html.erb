@@ -2,10 +2,8 @@
 
 <%= form_tag '/search', method: :post do %>
 <%= label_tag :input_search, "" %>
-<i class="material-icons">search</i></label>
-<div class="mdl-textfield__expandable-holder">
+<i class="material-icons">search</i>
   <%= text_field_tag :input_search, nil, class: "input-field" %>
-</div>
 <% end %>
 
 
@@ -15,15 +13,12 @@
   <% @products.each do |product| %>
   <div class="col l4 product">
     <a href='/products/<%= product["id"] %>'><div class="product-image-index" style="background-image: url('<%= product.image.url %>');"></div></a>
-    <%= form_tag '/added_products', method: :post do %>
+    <%= form_tag '/products', method: :post do %>
     <div>
       <%= hidden_field_tag :product_id, product["id"], placeholder: "Enter your Product ID" %>
     </div>
-    <div>
-      <%= hidden_field_tag :product_name, product["name"], placeholder: "Enter the Product Name" %>
-    </div>
     <div class="center-align">
-      <%= button_tag 'Add To Wish List', class: "btn" %>
+      <%= button_tag 'Save Product', class: "btn" %>
     </div>
     <% end %>
   </div>
