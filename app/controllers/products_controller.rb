@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
       image = product.images.find { |i| i["sizeName"] == 'Original' }
       product.image = OpenStruct.new(image)
       product
+
     end
 
   def new

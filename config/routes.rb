@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   get '/lists/:id/edit' => 'lists#edit'
   patch '/lists/:id' => 'lists#update'
   delete '/lists/:id' => 'lists#destroy'
+
+  post '/added_products' => 'added_products#create'
+  get '/added_products/:id/edit' => 'added_products#edit'
+  patch '/added_products/:id' => 'added_products#update'
+  delete '/added_products/:id' => 'added_products#destroy'
 end
 
 
