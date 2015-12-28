@@ -13,6 +13,7 @@
   <% @products.each do |product| %>
   <div class="col l4 m6 s12 product">
     <a href='/products/<%= product["id"] %>'><div class="product-image" style="background-image: url('<%= product.image.url %>');"></div></a>
+    <a href='<%= product["clickUrl"] %>'>Link</a>
     <%= form_tag '/products', method: :post do %>
     <div>
       <%= hidden_field_tag :product_id, product["id"], placeholder: "Enter your Product ID" %>
