@@ -16,6 +16,14 @@ img {
   max-width: $full;
 }
 
+.search {
+  font-size: 4em !important;
+}
+
+.search_input {
+  border-width: .5em !important;
+}
+
 .product {
   overflow: $hidden;
   padding: 2em $zero !important;
@@ -24,17 +32,15 @@ img {
     text-align: $center;
   }
 
-  .product-image-index {
-    height: 20em; 
+  .product-image {
+    height: 25em; 
     background-size: $bg_cover;
     background-position: $center;
     background-repeat: $no_repeat;
   }
 
-  .product-image-single {
-    height: 25em; 
-    background-size: $bg_cover;
-    background-position: $center;
-    background-repeat: $no-repeat;
+  .btn {
+    border-radius: 50%;
+    padding: 0 .5rem;
   }
 }
