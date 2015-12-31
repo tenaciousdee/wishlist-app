@@ -24,18 +24,10 @@ class ProductsController < ApplicationController
       Product.create(
         shopstyle_id: product_data["id"],
         name: product_data["name"],
-        image_src: product_data["image"]["sizes"]["Best"]["url"],
+        image_src: product_data["image"]["sizes"]["Original"]["url"],
         list_id: params[:list][:list_id]
       )
       redirect_to "/products/#{product_id}"
-    #   @product = Unirest.post(
-    #   "http://api.shopstyle.com/api/v2/products?pid=uid9904-31996852-79",
-    #   headers: { "Accept" => "application/json" }, 
-    #   parameters: {
-    #     product_id: params[:product_id]
-    #   }
-    # ).body
-    #    redirect_to "/products/#{@product['id']}"
     end
 
     def show
