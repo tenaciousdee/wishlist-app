@@ -8,7 +8,7 @@
 
   <% @list.products.each do |product| %>
     <div class="product col l4 m6 s12">
-      <div class="product-image" style="background-image: url('<%= product.image_src %>');"></div>
+      <a href="/products/<%= product.shopstyle_id %>"><div class="product-image" style="background-image: url('<%= product.image_src %>');"></div></a>
     </div>
   <% end %>
 </div>

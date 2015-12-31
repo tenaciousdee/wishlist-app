@@ -5,11 +5,12 @@
 
 // Variables
 
-$full: 100%;
 $hidden: hidden;
-$bg_cover: contain;
+$bg_contain: contain;
+$bg_cover: cover;
 $center: center;
 $no_repeat: no-repeat;
+$full: 100%;
 $zero: 0;
 $half: 50%;
 $bold: 700;
@@ -42,9 +43,15 @@ img {
 
   .product-image {
     height: 25em; 
-    background-size: $bg_cover;
+    background-size: $bg_contain;
     background-position: $center;
     background-repeat: $no_repeat;
+  }
+
+  .product-image-list {
+    @extend .product-image;
+    height: 10em;
+    background-size: $bg_cover;
   }
 
   .btn {
