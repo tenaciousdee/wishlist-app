@@ -1,3 +1,4 @@
+<!-- Search form begins -->
 <h2 class="grey-text"><strong>Search for Products</strong></h2>
 
 <%= form_tag '/search', method: :post do %>
@@ -5,7 +6,7 @@
 <i class="material-icons search grey-text">search</i>
 <%= text_field_tag :input_search, nil, class: "input-field search_input" %>
 <% end %>
-
+<!-- Search form ends -->
 
 
 <% if @products.length > 0 %>
@@ -14,18 +15,24 @@
   <div class="col l4 m6 s12 product">
     <a href='/products/<%= product["id"] %>'><div class="product-image" style="background-image: url('<%= product.image.url %>');"></div></a>
     <a href='<%= product["clickUrl"] %>'>Link</a>
+    
+    <!-- Add product to database form -->
     <%= form_tag '/products', method: :post do %>
     <div>
       <%= hidden_field_tag :product_id, product["id"], placeholder: "Enter your Product ID" %>
     </div>
-    <div class="center-align">
-    <%= button_tag( :class => "btn red lighten-3") do %>
+      <div>
+        <%= collection_select :list, :list_id, @lists, :id, :name, { prompt: "Choose a wish list" } %>
+      </div>
+    <div>
+      <%= button_tag( :class => "btn red lighten-3") do %>
       <i class="material-icons">add</i>
       <% end %>
     </div>
     <% end %>
   </div>
-
   <% end %>
+  <!-- End form -->
+
 </div>
 <% end %>

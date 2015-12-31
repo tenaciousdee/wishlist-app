@@ -10,8 +10,10 @@ class ProductsController < ApplicationController
       image = product.images.find { |i| i["sizeName"] == 'Original' }
       product.image = OpenStruct.new(image)
       product
-
     end
+
+    @lists = List.all
+  end
 
     def new
     end
@@ -22,7 +24,8 @@ class ProductsController < ApplicationController
       Product.create(
         shopstyle_id: product_data["id"],
         name: product_data["name"],
-        image_src: product_data["image"]["sizes"]["Best"]["url"]
+        image_src: product_data["image"]["sizes"]["Best"]["url"],
+        list_id: params[:list][:list_id]
       )
       redirect_to "/products/#{product_id}"
     #   @product = Unirest.post(
@@ -67,4 +70,3 @@ class ProductsController < ApplicationController
       render :index
     end
   end
-end
