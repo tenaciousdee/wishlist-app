@@ -67,6 +67,8 @@ class ProductsController < ApplicationController
         @search = params[:input_search]
       end
 
+      @lists = List.all
+
       render :index
     end
   end

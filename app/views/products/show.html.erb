@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col l8 product">
-    <div class="product-image" style="background-image: url('<%= @product["image"]["sizes"]["Best"]["url"] %>');"></div>
+  <a href='<%= @product["clickUrl"] %>'>
+    <div class="product-image" style="background-image: url('<%= @product["image"]["sizes"]["Best"]["url"] %>');"></div></a>
   </div>
   <div class="col l4">
     <h3><%= @product["name"] %></h3>

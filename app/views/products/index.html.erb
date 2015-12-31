@@ -14,7 +14,7 @@
   <% @products.each do |product| %>
   <div class="col l4 m6 s12 product">
     <a href='/products/<%= product["id"] %>'><div class="product-image" style="background-image: url('<%= product.image.url %>');"></div></a>
-    <a href='<%= product["clickUrl"] %>'>Link</a>
+    <a href='<%= product.url %>'><i class="material-icons red-text text-lighten-3">share</i></a>
     
     <!-- Add product to database form -->
     <%= form_tag '/products', method: :post do %>
