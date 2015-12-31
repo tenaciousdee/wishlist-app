@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
       Product.create(
         shopstyle_id: product_data["id"],
         name: product_data["name"],
-        image_url: product_data["image"]["sizes"]["Best"]["url"]
+        image_src: product_data["image"]["sizes"]["Best"]["url"]
       )
       redirect_to "/products/#{product_id}"
     #   @product = Unirest.post(
