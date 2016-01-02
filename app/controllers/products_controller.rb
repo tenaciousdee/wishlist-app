@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
     client = Shopsense::API.new('partner_id' => 'uid9904-31996852-79')
     response = client.search("new", index = 0, num_results = 15)
 
+    if params[:limit]
+    response = client.search("new", index = 16, num_results = 15)
+    end
+
     raw_products = JSON.parse(response)["products"]
 
     @products = raw_products.map do |product|

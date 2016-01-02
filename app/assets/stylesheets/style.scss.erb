@@ -1,0 +1,64 @@
+// Variables
+
+$hidden: hidden;
+$bg_contain: contain;
+$bg_cover: cover;
+$center: center;
+$no_repeat: no-repeat;
+$full: 100%;
+$zero: 0;
+$half: 50%;
+$bold: 700;
+
+// Globals
+
+img {
+  max-width: $full;
+}
+
+.hero {
+  background-image: image-url("<%= asset_path('home.jpg') %>");
+  height: 45em;
+  background-repeat: $no_repeat;
+  background-size: $bg_cover;
+  background-position: top;
+}
+
+// Search
+
+.search {
+  font-size: 4em !important;
+}
+
+.search_input {
+  border-width: .5em !important;
+}
+
+// Products
+
+.product {
+  overflow: $hidden;
+  padding: 6em .7em !important;
+
+  h2 {
+    text-align: $center;
+  }
+
+  .product-image {
+    height: 25em; 
+    background-size: $bg_contain;
+    background-position: $center;
+    background-repeat: $no_repeat;
+  }
+
+  .product-image-list {
+    @extend .product-image;
+    height: 10em;
+    background-size: $bg_cover;
+  }
+
+  .btn {
+    border-radius: 50%;
+    padding: 0 .5rem;
+  }
+}
