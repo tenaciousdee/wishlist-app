@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'unirest'
+gem 'json'
 # gem 'shopsense-ruby', '~> 0.1.2'
 gem 'carrierwave'
 gem 'devise'

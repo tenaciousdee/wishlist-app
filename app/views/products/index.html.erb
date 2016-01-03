@@ -2,9 +2,9 @@
 <div class="row">
   <div class="col l12"> 
     <div class="hero">
-  <div class="col l4 offset-l9">
-    <p>Not if you're a fish. I thought I saw a baby bump. Time for the charm bomb to explode. I'm torn. Dad raised me, but the shark gets me. If we see any mermaids, I'm gonna ask them where their merginas are. I didn't know our county was bi. Good for us.</p>
-  </div>
+      <div class="col l4 offset-l9">
+        <p>Not if you're a fish. I thought I saw a baby bump. Time for the charm bomb to explode. I'm torn. Dad raised me, but the shark gets me. If we see any mermaids, I'm gonna ask them where their merginas are. I didn't know our county was bi. Good for us.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -50,6 +50,24 @@
 </div>
 <% end %>
 
+<% if ! @search %>
 <div class="row">
-  <div class="col l6"><a href="/products?limit=page">Next</a></div>
+  <div class="col l6">
+    <div class="col l1"><a href="/products?start=0">1</a></div>
+    <div class="col l1"><a href="/products?start=15">2</a></div>
+    <div class="col l1"><a href="/products?start=30">3</a></div>
+    <div class="col l1"><a href="/products?start=45">4</a></div>
+    <div class="col l1"><a href="/products?start=60">5</a></div>
+  </div>
 </div>
+<% else %>
+<div class="row">
+  <div class="col l6">
+    <div class="col l1"><a href="/search?start=0">1</a></div>
+    <div class="col l1"><a href="/search?start=15">2</a></div>
+    <div class="col l1"><a href="/search?start=30">3</a></div>
+    <div class="col l1"><a href="/search?start=45">4</a></div>
+    <div class="col l1"><a href="/search?start=60">5</a></div>
+  </div>
+</div>
+<% end %>
