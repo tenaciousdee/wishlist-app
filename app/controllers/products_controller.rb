@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
       image_src: product_data["image"]["sizes"]["Original"]["url"],
       list_id: params[:list][:list_id]
       )
+    flash[:success] = "Product was successfully added to list"
     redirect_to "/products/#{product_id}"
   end
 
