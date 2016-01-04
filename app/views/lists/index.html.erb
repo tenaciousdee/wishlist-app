@@ -7,7 +7,7 @@
   <a href="/lists/<%= list.id %>"><h3><%= list.name %></h3></a>
   <p><%= list.description %></p>
   <% list.products.each do |product| %>
-    <div class="col l1 product">
+    <div class="col l1 product-list">
       <div class="product-image-list" style="background-image: url('<%= product.image_src %>');"></div>
     </div>
   <% end %>

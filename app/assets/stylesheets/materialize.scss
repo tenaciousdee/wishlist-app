@@ -4,6 +4,9 @@
 @import "materialize/components/prefixer";
 @import "materialize/components/mixins";
 @import "materialize/components/color";
+$primary-color: color("grey", "base") !default;
+$link-color: color("grey", "darken-3") !default;
+$secondary-color: color("materialize-red", "lighten-4") !default;
 
 // Variables
 @import "materialize/components/variables";
@@ -39,6 +42,31 @@
 @import "materialize/components/date_picker/default.date.scss";
 @import "materialize/components/date_picker/default.time.scss";
 
+
 h1, h2, h3, h4, h5, h6 {
   @extend .grey-text;
 }
+
+nav {
+  box-shadow: none;
+}
+
+nav ul a {
+  color: $link-color;
+}
+
+.brand-logo h1 {
+  border: solid 2px $secondary-color;
+  box-shadow: 15px 15px 0 0 $secondary-color;
+  display: inline-block;
+  padding: .4em;
+  position: relative;
+  z-index: 1;
+  border: solid 2px;
+}
+
+  // @media #{$large-and-up} {
+  //   .brand-logo h1 {
+  //     left: 1.5em;
+  //   }
+  // }
