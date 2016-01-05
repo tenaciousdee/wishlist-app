@@ -2,8 +2,6 @@ class ProductsController < ApplicationController
   def index
     client = Shopsense::API.new('partner_id' => 'uid9904-31996852-79')
     response = client.search("new", index = 0, num_results = 15)
-    
-    total_products = JSON.parse(response)["totalCount"]
 
     if params[:start]
       response = client.search("new", index = params[:start], num_results = 15)
