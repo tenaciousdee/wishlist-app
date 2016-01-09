@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
 
   def destroy
     product_id = params[:product_id]
-    @product = Product.find_by(id: product_id, list_id: params[:list_id])
+    @product = Product.find_by(id: product_id)
     @product.destroy
 
     redirect_to action: "index"
