@@ -38,12 +38,12 @@
     <div>
       <%= collection_select :list, :list_id, @lists, :id, :name, { prompt: "Choose a wish list" } %>
     </div>
-    <% end %>
     <div>
       <%= button_tag( :class => "btn red lighten-3") do %>
       <i class="material-icons">add</i>
       <% end %>
     </div>
+    <% end %>
     <% end %>
   </div>
   <% end %>

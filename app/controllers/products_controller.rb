@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
       list_id: params[:list][:list_id]
       )
     flash[:success] = "Product was successfully added to list"
-    redirect_to "/products/#{product_id}"
+    redirect_to "/lists/#{params[:list][:list_id]}"
   end
 
   def show
@@ -46,6 +46,12 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    product_id = params[:product_id]
+    @product = Product.find_by(id: product_id, list_id: params[:list_id])
+    @product.destroy
+
+    redirect_to action: "index"
+    flash[:success] = "Product was successfully removed from list"
   end
 
   def search

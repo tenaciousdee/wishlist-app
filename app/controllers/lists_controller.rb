@@ -31,7 +31,8 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find_by(id: params[:id])
-    @list.update(active: false)
+    @list.destroy
+    # @list.update(active: false)
     redirect_to "/lists"
   end
 
