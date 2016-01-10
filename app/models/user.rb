@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
   has_many :products
   has_many :lists
   # Include default devise modules. Others available are:
