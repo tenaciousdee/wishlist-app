@@ -52,6 +52,19 @@
 </div>
 <% end %>
 
+<div class="row">
+<div ng-app="app">
+  <div ng-controller="productsCtrl" ng-init="setup()">
+    <div class="col l4 m6 s12 product" ng-repeat="product in products">
+      <a href="{{ product.url }}">
+      <p>{{ product.name }}</p>
+      <div class="product-image" style="background-image: url('{{ product.image_url }}');"></div>
+      </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% if ! @search %>
 <div class="row">
   <div class="col l6">
