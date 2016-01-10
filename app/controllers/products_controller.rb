@@ -46,11 +46,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
     product_id = params[:id]
-=======
-    product_id = params[:product_id]
->>>>>>> b7873ddcb72746188747cd97856c408331e464b6
     @product = Product.find_by(id: product_id)
     @product.destroy
 
