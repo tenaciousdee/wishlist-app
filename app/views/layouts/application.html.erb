@@ -1,45 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wishlist App</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+<title>Wishlist App</title>
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+<%= javascript_include_tag 'application' %>
+<%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="white">
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if current_user %>
-        <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
-        <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
-        <% else %>
-        <li><a href="/users/sign_in">Sign In</a></li>
-        <li><a href="/users/sign_up">Create an Account</a></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-  <div class="row">
-    <div class="col l2">
-      <a href="/" class="brand-logo"><h1 class="red-text text-lighten-4"><strong>Ooh, Gimme</strong></h1></a>
-      <ul id="nav-mobile" class="side-nav-fixed">
-        <% if current_user %>
-        <li><a href="/lists/">My Lists</a></li>
-        <li><a href="/lists/new">Create a new List</a></li>
-        <% end %>
-      </ul>
-    </div>
+<%= render "layouts/top_nav" %>
+<div class="row">
+  <%= render "layouts/side_nav" %>
+  <%= render "layouts/flash_message" %>
 
-    <%= render "layouts/flash_message" %>
-
-    <main>
-     <!--  <div class="container"> -->
-     <div class="col l9">
+  <main>
+   <% if @products && ! @search %>
+   <div class="col l9">
+    <% else %>
+    <div class="col l9 right">
+      <% end %>
       <%= yield %>
     </div>
-    <!-- </div> -->
   </main>
 </div>
 

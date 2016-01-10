@@ -1,0 +1,9 @@
+<div class="col l2">
+  <a href="/" class="brand-logo"><h1 class="red-text text-lighten-4"><strong>Ooh, Gimme</strong></h1></a>
+  <ul id="nav-mobile" class="side-nav-fixed">
+    <% if current_user %>
+    <li><a href="/lists/">My Lists</a></li>
+    <li><a href="/lists/new">Create a new List</a></li>
+    <% end %>
+  </ul>
+</div>
