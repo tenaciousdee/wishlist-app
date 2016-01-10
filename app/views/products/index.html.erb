@@ -36,7 +36,7 @@
     </div>
     <% if current_user %>
     <div>
-      <%= collection_select :list, :list_id, @lists, :id, :name, { prompt: "Choose a wish list" } %>
+      <%= collection_select :list, :list_id, current_user.lists, :id, :name, { prompt: "Choose a wish list" } %>
     </div>
     <div>
       <%= button_tag( :class => "btn red lighten-3") do %>

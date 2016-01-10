@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
-  
+
   def index
     client = Shopsense::API.new('partner_id' => 'uid9904-31996852-79')
     response = client.search("new", index = 0, num_results = 15)
@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Unirest.get("http://api.shopstyle.com/api/v2/products/#{params[:id]}?pid=uid9904-31996852-79").body
+    @lists = List.all
   end
 
   def edit
