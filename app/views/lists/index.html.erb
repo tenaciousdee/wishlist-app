@@ -5,9 +5,9 @@
 
 <h4><%= current_user.lists.length %> lists</h4>
 
-<% if @lists.length > 0 %>
+<% if current_user && current_user.lists.length > 0 %>
 <div class="row">
-  <% @lists.each do |list| %>
+  <% current_user.lists.each do |list| %>
   <div class="col l12">
   <a href="/lists/<%= list.id %>"><h3><%= list.name %></h3></a> 
   <p><em><%= list.products.length %> products</em></p>

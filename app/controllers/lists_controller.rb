@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+    before_action :authenticate_user!, except: [:show]
+
   def index
     @lists = List.all
   end
@@ -11,7 +13,7 @@ class ListsController < ApplicationController
     @user = current_user
 
     @list = List.create(list_params)
-    @list.set_user!(current_user)
+    @list.set_user!(@user)
     redirect_to "/lists/#{@list.id}"
   end
 
@@ -32,7 +34,6 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find_by(id: params[:id])
     @list.destroy
-    # @list.update(active: false)
     redirect_to "/lists"
   end
 
