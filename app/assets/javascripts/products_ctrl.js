@@ -1,5 +1,5 @@
-/* global angular */
-(function() {
+// /* global angular */
+// (function() {
 //   angular.module("app").controller("productsCtrl", function($scope, $http) {
 //     $scope.setup = function() {
 //       $scope.autocompleteName = function(text) {
