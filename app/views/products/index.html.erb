@@ -10,7 +10,6 @@
 </div>
 <% end %>
 
-
 <!-- Search form begins -->
 <h2 class="grey-text"><strong>Search for Products</strong></h2>
 
@@ -20,6 +19,34 @@
 <%= text_field_tag :input_search, nil, class: "input-field search_input" %>
 <% end %>
 <!-- Search form ends -->
+
+<div ng-app="app">
+<div ng-controller="productsCtrl" ng-init="setup()">
+  <label>Filter:</label>
+
+  <input ng-model="nameFilter">
+  <div id="order-buttons">
+    <button ng-click="changeOrderAttribute('name')">Order by name</button>
+  </div>
+  <div class="row">
+    <div class="product col l4 m6 s12" ng-repeat="product in products | filter: {name: nameFilter} ">
+      <a href="/products/{{ product.id }}">
+        <div class="product-image" style="background-image: url('{{ product.image_url }}');"></div>
+        <h3>{{ product.name }}</h3>
+      </a>
+      <form name="myForm">
+        <div class="input-field">
+          <select name="repeatList" id="repeatSelect">
+            <option ng-repeat="list in lists" value="{{ list.id }}">{{ list.name }}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
 
 
 <% if @products.length > 0 %>

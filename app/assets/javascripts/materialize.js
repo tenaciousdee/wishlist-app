@@ -1,5 +1,4 @@
 /* global $ */
-/* global Materialize */
 
 $(document).ready(function() {
   // TODO: Fix this hack, run 
