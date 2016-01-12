@@ -2,5 +2,8 @@
 /* global Materialize */
 
 $(document).ready(function() {
-  $('select').material_select();
+  // TODO: Fix this hack, run 
+  setTimeout(function() {
+    $('select').material_select();
+  }, 3000);
 });

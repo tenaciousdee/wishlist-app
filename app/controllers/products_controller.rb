@@ -19,9 +19,6 @@ class ProductsController < ApplicationController
       product
     end
 
-    puts '===================================='
-    puts @products[0]
-    puts '===================================='
     @lists = List.all
   end
 
