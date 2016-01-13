@@ -19,6 +19,7 @@ gem 'json'
 # gem 'shopsense-ruby', '~> 0.1.2'
 gem 'carrierwave'
 gem 'devise'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
