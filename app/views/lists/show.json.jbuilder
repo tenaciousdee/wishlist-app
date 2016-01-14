@@ -1,0 +1,1 @@
+json.partial! @list, partial: 'list', as: :list

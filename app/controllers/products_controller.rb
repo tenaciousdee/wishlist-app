@@ -32,6 +32,9 @@ class ProductsController < ApplicationController
       shopstyle_id: product_data["id"],
       name: product_data["name"],
       image_src: product_data["image"]["sizes"]["Original"]["url"],
+      retailer: product_data["retailer"] ? product_data["retailer"]["name"] : "no retailer",
+      brand: product_data["brand"] ? product_data["brand"]["name"] : "no brand",
+      category: product_data["categories"][0]["name"] || "no category",
       list_id: params[:list][:list_id]
       )
     flash[:success] = "Product was successfully added to list"
@@ -72,9 +75,6 @@ class ProductsController < ApplicationController
         product
       end
       @search = params[:input_search]
-      if params[:start]
-        result = client.search(params[:input_search], index = params[:start])
-      end
     end
 
     @lists = List.all

@@ -3,12 +3,24 @@
   <div class="col l12"> 
     <div class="hero">
       <div class="col l4 offset-l9">
-        <p>Not if you're a fish. I thought I saw a baby bump. Time for the charm bomb to explode. I'm torn. Dad raised me, but the shark gets me. If we see any mermaids, I'm gonna ask them where their merginas are. I didn't know our county was bi. Good for us.</p>
+        <p>Start searching for products. Create a list. Once you find products you want, add them to your lists. Do it all over again.</p>
       </div>
+<!-- Search form begins -->
+<h2 class="grey-text"><strong>Search for Products</strong></h2>
+
+<%= form_tag '/search', method: :post do %>
+<%= label_tag :input_search, "" %>
+<i class="material-icons search grey-text">search</i>
+<%= text_field_tag :input_search, nil, class: "input-field search_input" %>
+<% end %>
+<!-- Search form ends -->
     </div>
   </div>
 </div>
 <% end %>
+
+
+<% if @search && @products.length > 0 %>
 
 <!-- Search form begins -->
 <h2 class="grey-text"><strong>Search for Products</strong></h2>
@@ -20,7 +32,6 @@
 <% end %>
 <!-- Search form ends -->
 
-<% if @search && @products.length > 0 %>
 <div class="row">
   <% @products.each do |product| %>
   <div class="col l4 m6 s12 product">

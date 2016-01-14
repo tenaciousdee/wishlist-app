@@ -14,3 +14,17 @@
 <%= link_to "Back to all lists", "/lists" %>
 
 </div>
+
+<div class="row">
+  <div class="col l12">
+    <div ng-app="app">
+      <div ng-controller="productsCtrl" ng-init="setup()">
+      <div ng-repeat="product in products">
+          <div class="product col l4 m6 s12">
+            <a href="/products/{{ product.shopstyle_id }}"><div class="product-image" style="background-image: url('{{ product.image_src }}');"></div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

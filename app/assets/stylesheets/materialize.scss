@@ -65,6 +65,11 @@ nav ul a {
   border: solid 2px;
 }
 
+.user-lists {
+  padding-left: 1em;
+  border-left: 5px solid $secondary-color;
+}
+
 .total-lists {
   @extend .grey-text;
   padding: 0 .3em;
