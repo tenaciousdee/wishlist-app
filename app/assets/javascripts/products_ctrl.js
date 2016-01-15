@@ -6,7 +6,15 @@
       $http.get(window.location.pathname + '.json').then(function(response) {
         $scope.list = response.data;
         $scope.products = response.data.products;
+        $scope.productCategories = response.data.product_categories;
       });
+
+      $scope.changeFilterCategory = function(inputProductCategory) {
+        $scope.filterCategory = inputProductCategory;
+      };
+
+      
+      // $scope.filterCategory = "Watches";
 
       $scope.deleteProduct = function(inputProduct) {
         console.log(inputProduct.id);

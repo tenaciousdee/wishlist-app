@@ -10,11 +10,10 @@ class List < ActiveRecord::Base
 
   def product_categories
     categories = []
-    List.all.each do |list|
-      list.products.each do |product|
-        categories << product.category
-      end
+    products.each do |product|
+      categories << product.category
     end
-    categories.uniq
+    new_cats = categories.uniq.reject { |cat| cat.nil? || cat == '' }
+    new_cats
   end
 end
