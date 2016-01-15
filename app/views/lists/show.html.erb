@@ -1,27 +1,13 @@
 <div class="row">
   <div class="col l12">
-    <h2><%= @list.name %></h2>
-    <p><%= @list.description %></p>
-  </div>
-
-  <% @list.products.each do |product| %>
-    <div class="product col l4 m6 s12">
-      <a href="/products/<%= product.shopstyle_id %>"><div class="product-image" style="background-image: url('<%= product.image_src %>');"></div></a>
-      <%= link_to "Remove from list", "/products/#{product.id}", method: :delete %>
-    </div>
-  <% end %>
-
-<%= link_to "Back to all lists", "/lists" %>
-
-</div>
-
-<div class="row">
-  <div class="col l12">
     <div ng-app="app">
       <div ng-controller="productsCtrl" ng-init="setup()">
+      <h2>{{ list.name }}</h2>
+      <p>{{ list.description }}</p>
       <div ng-repeat="product in products">
           <div class="product col l4 m6 s12">
             <a href="/products/{{ product.shopstyle_id }}"><div class="product-image" style="background-image: url('{{ product.image_src }}');"></div></a>
+            <button class="btn-large" ng-click="deleteProduct(product)">Delete Product</button>
           </div>
         </div>
       </div>

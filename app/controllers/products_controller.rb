@@ -61,6 +61,14 @@ class ProductsController < ApplicationController
     redirect_to action: "index"
   end
 
+  def destroy_api
+    product_id = params[:id]
+    @product = Product.find_by(id: product_id)
+    @product.destroy
+
+    render json: {message: "Product successfully deleted!"}
+  end
+
   def search
     if params[:input_search]
       client = Shopsense::API.new({'partner_id' => 'uid9904-31996852-79'})
