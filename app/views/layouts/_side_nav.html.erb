@@ -3,6 +3,7 @@
   <div class="col l10 user-img"><div class="profile" style="background-image: url('<%= current_user.image %>');"></div></div>
   <p><em>Welcome, <%= current_user.name %>!</em></p>
   <% end %>
+
   <ul id="nav-mobile" class="side-nav-fixed list-names">
     <% if current_user %>
     <li><a href="/lists/" class="title">My Lists <span class="total-lists"><%= current_user.lists.length %></span></a></li>
@@ -14,4 +15,6 @@
     <li><a href="/lists/new">Create a new List</a></li>
     <% end %>
   </ul>
+
+
 </div>
