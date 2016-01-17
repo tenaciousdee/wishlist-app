@@ -24,14 +24,90 @@ img {
 }
 
 .hero {
-  background-image: image-url("<%= asset_path('home.jpg') %>");
-  height: 45.5em;
+  background-image: image-url("<%= asset_path('geo.svg') %>");
+  height: 40em;
   background-repeat: $no_repeat;
   background-size: $bg_cover;
   background-position: top;
 }
 
+.no-p {
+  padding: $zero;
+}
+
+.flip {
+  perspective: 1000;
+  -webkit-perspecitve: 1000;
+  -ms-perspective: 1000;
+  position: relative;
+  height: 10em;
+}
+
+.flip:hover .cont {
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.flip, .flip .front, .flip .back {
+  height: 15em;
+  width: 15em;
+  padding: 2.2em;
+}
+
+.cont {
+  position: absolute;
+  top: -1em;
+  left: 0;
+  width: 15em;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.front, .back {
+  margin: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 
+  0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.front {
+  z-index: 2;
+}
+
+.front p {
+  font-size: 2.2em;
+  font-weight: bold;
+  line-height: 1;
+  margin: 0 auto;
+  padding-top: 1.5em;
+}
+
+.front i {
+  padding-left: 1.3em;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.back {
+  -ms-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.back p {
+  font-weight: bold;
+}
+
 // Search
+
+.home-search {
+  margin-top: 6em;
+  margin-left: 3em !important;
+}
 
 .search {
   font-size: 4em !important;
@@ -40,6 +116,10 @@ img {
 .search_input {
   border-width: .5em !important;
 }
+
+// <!-- .search-text {
+//     text-shadow: 1px 1px rgb(158,158,158), 2px 2px rgb(158,158,158), 3px 3px rgb(158,158,158), 4px 4px rgb(158,158,158), 5px 5px rgb(158,158,158), 6px 6px rgb(158,158,158), 7px 7px rgb(158,158,158), 8px 8px rgb(158,158,158), 9px 9px rgb(158,158,158), 10px 10px rgb(158,158,158), 11px 11px rgb(158,158,158), 12px 12px rgb(158,158,158), 13px 13px rgb(158,158,158), 14px 14px rgb(158,158,158), 15px 15px rgb(158,158,158);
+// } -->
 
 // Products
 
@@ -80,17 +160,9 @@ img {
   border-radius: $half;
   background-size: $bg_cover;
   background-position: $center;
+  clear: both;
 }
 
 .search-form {
   padding-top: 15em;
-}
-
-polygon {
-  opacity: 0.7;
-}
-
-polygon:hover {
-  opacity: 1;
-  transition: .1s;
 }

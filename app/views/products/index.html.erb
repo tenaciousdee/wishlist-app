@@ -1,36 +1,53 @@
 <% if ! @search %>
-<div class="row">
-  <div class="col l12"> 
+<div class="row home">
+  <div class="col l12 no-p"> 
     <div class="hero">
-      <div class="col l4 offset-l9">
-        <p>Start searching for products. Create a list. Once you find products you want, add them to your lists. Do it all over again.</p>
-      </div>
-<!-- Search form begins -->
-<h2 class="grey-text"><strong>Search for Products</strong></h2>
+      <div class="col l2 offset-l1">
+      <div class="flip white-text">
+         <div class="cont">
+          <div class="front grey circle">
+            <p class="center">Start Here</p>
+            <i class="material-icons center">arrow_downward</i>
+          </div>
+        </div>
+        <div class="cont">
+          <div class="back grey circle">
+            <p class="center">Sign up and start searching for products. Create a list. Once you find products you want, add them to your lists. Do it all over again.</p>
+          </div>
+        </div>
+        </div>
+    </div>
 
-<%= form_tag '/search', method: :post do %>
-<%= label_tag :input_search, "" %>
-<i class="material-icons search grey-text">search</i>
-<%= text_field_tag :input_search, nil, class: "input-field search_input" %>
-<% end %>
-<!-- Search form ends -->
+    <div class="col l9 home-search">
+      <!-- Search form begins -->
+      <h2 class="white-text search-text"><strong>Search for Products</strong></h2>
+
+      <%= form_tag '/search', method: :post do %>
+      <%= label_tag :input_search, "" %>
+      <i class="material-icons search white-text">search</i>
+      <%= text_field_tag :input_search, nil, class: "input-field search_input" %>
+      <% end %>
+      <!-- Search form ends -->
     </div>
   </div>
+</div>
 </div>
 <% end %>
 
 
 <% if @search && @products.length > 0 %>
 
-<!-- Search form begins -->
-<h2 class="grey-text"><strong>Search for Products</strong></h2>
+<div class="col l9">
+  <!-- Search form begins -->
+  <h2 class="grey-text"><strong>Search for Products</strong></h2>
 
-<%= form_tag '/search', method: :post do %>
-<%= label_tag :input_search, "" %>
-<i class="material-icons search grey-text">search</i>
-<%= text_field_tag :input_search, nil, class: "input-field search_input" %>
-<% end %>
-<!-- Search form ends -->
+  <%= form_tag '/search', method: :post do %>
+  <%= label_tag :input_search, "" %>
+  <i class="material-icons search grey-text">search</i>
+  <%= text_field_tag :input_search, nil, class: "input-field search_input" %>
+  <% end %>
+  <!-- Search form ends -->
+</div>
 
 <div class="row">
   <% @products.each do |product| %>

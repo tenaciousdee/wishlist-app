@@ -10,13 +10,15 @@
 
 <body>
 <%= render "layouts/top_nav" %>
-<div class="row">
+<div class="row home">
+<% if ! @products && ! @search %>
   <%= render "layouts/side_nav" %>
+<% end %>
   <%= render "layouts/flash_message" %>
 
   <main>
-   <% if @products && ! @search %>
-   <div class="col l9">
+   <% if @products || @search %>
+   <div class="col l12 no-p">
     <% else %>
     <div class="col l9 right">
       <% end %>

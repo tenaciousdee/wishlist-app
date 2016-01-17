@@ -48,21 +48,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
-  box-shadow: none;
+  // box-shadow: none;
+  height: 12em;
 }
 
 nav ul a {
   color: $link-color;
 }
 
+.home-search input[type=text] {
+  border-bottom: 1px solid #fff;
+}
+
+.home {
+  margin: 0;
+  padding: 0;
+}
+
+.home .no-p {
+  margin: 0;
+  padding: 0;
+}
+
 .brand-logo h1 {
-  border: solid 2px $secondary-color;
-  box-shadow: 15px 15px 0 0 $secondary-color;
-  display: inline-block;
-  padding: .4em .7em;
-  position: relative;
-  z-index: 1;
-  border: solid 2px;
+  border: 10px solid $primary-color;
+  padding: .1em 1em;
 }
 
 .user-lists {
@@ -78,10 +88,3 @@ nav ul a {
   border-style: solid;
   border-radius: 50%;
 }
-
-// @media #{$large-and-up} {
-//     .brand-logo h1 {
-//       position: relative;
-//       left: .5em;
-//     }
-//   }
