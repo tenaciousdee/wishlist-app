@@ -1,6 +1,9 @@
 /* global $ */
-
 $(document).ready(function() {
-  $('select').material_select();
-  $(".button-collapse").sideNav();
+  // TODO: Fix this hack
+  setTimeout(function() {
+    $('select').material_select();
+    $(".button-collapse").sideNav();
+    $('.modal-trigger').leanModal();
+  }, 3000);
 });

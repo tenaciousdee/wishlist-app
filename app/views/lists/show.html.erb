@@ -2,30 +2,43 @@
   <div class="col l12">
     <div ng-app="app">
       <div ng-controller="productsCtrl" ng-init="setup()">
-      <h2>You May Also Like:</h2>
+        <h3>You May Also Like:</h3>
 
-    <div class="row">
-      <div ng-repeat="similar in similarByRetailer">
-        <div class="col l1 product-list"><div class="product-image-list" style="background-image: url('{{ similar.image_url }}');"></div>
-        </div>
-      </div>
-      </div>
-
-
-      <h2>{{ list.name }}</h2>
-      <p>{{ list.description }}</p>
-
-      <div ng-repeat="productCategory in productCategories">
-        <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(productCategory)">{{ productCategory }}</button>
-      </div>
-
-    <div style="clear:both;">
-      <div ng-repeat="product in products | filter: {category: filterCategory}">
-          <div class="product col l4 m6 s12">
-            <a href="/products/{{ product.shopstyle_id }}"><div class="product-image" style="background-image: url('{{ product.image_src }}');"></div></a>
-            <button class="btn-large" ng-click="deleteProduct(product)">Delete Product</button>
+        <div class="row">
+          <div ng-repeat="similar in similarByRetailer">
+            <div class="col l1 product-list">
+            <a class="modal-trigger" href="#modal{{ similar.id }}">
+                <div class="product-image-list" style="background-image: url('{{ similar.image_url }}');"></div>
+              </a>
+              <div id="modal{{ similar.id}}" class="modal">
+                <div class="modal-content">
+                  <h4>{{ similar.name }}</h4>
+                  <p>{{ similar.price }}</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+
+        <h2>{{ list.name }}</h2>
+        <p>{{ list.description }}</p>
+
+        <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(filterAll)">All</button>
+        <div ng-repeat="productCategory in productCategories">
+          <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(productCategory)">{{ productCategory }}</button>
+        </div>
+
+        <div style="clear:both;">
+          <div ng-repeat="product in products | filter: {category: filterCategory}">
+            <div class="product col l4 m6 s12">
+              <a href="/products/{{ product.shopstyle_id }}"><div class="product-image" style="background-image: url('{{ product.image_src }}');"></div></a>
+              <button class="btn-large" ng-click="deleteProduct(product)">Delete Product</button>
+            </div>
+          </div>
         </div>
 
 

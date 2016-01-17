@@ -16,6 +16,7 @@
 
       $scope.changeFilterCategory = function(inputProductCategory) {
         $scope.filterCategory = inputProductCategory;
+        $scope.filterAll = '';
       };
 
 
