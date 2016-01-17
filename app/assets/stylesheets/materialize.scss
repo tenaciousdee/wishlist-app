@@ -75,10 +75,31 @@ nav ul a {
   padding: .1em 1em;
 }
 
+.list-names {
+  border-top: 5px solid $link-color;
+  padding: 2em 0;
+}
+
+.title {
+  position: relative;
+  padding: .5em 0;
+  display: block;
+}
+
+.title:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 1px;
+  background: hsl(0, 0%, 60%);
+  bottom: -5px;
+  left: 2px;
+}
+
 .user-lists {
   margin-left: 1em;
-  padding-left: .5em;
-  border-left: 5px solid $secondary-color;
+  padding: 1em 0 1em .5em;
 }
 
 .total-lists {

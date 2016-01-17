@@ -80,6 +80,7 @@ class ProductsController < ApplicationController
         product = OpenStruct.new(product)
         image = product.images.find { |i| i["sizeName"] == 'Original' }
         product.image = OpenStruct.new(image)
+        product.image_url = image["url"]
         product
       end
       @search = params[:input_search]

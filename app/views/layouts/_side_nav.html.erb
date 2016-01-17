@@ -1,10 +1,11 @@
 <div class="col l2">
   <% if current_user %>
   <div class="col l10 user-img"><div class="profile" style="background-image: url('<%= current_user.image %>');"></div></div>
+  <p class="center"><em>Welcome, <%= current_user.name %>!</em></p>
   <% end %>
-  <ul id="nav-mobile" class="side-nav-fixed">
+  <ul id="nav-mobile" class="side-nav-fixed list-names">
     <% if current_user %>
-    <li><a href="/lists/">My Lists</a></li>
+    <li><a href="/lists/" class="title">My Lists</a></li>
     <ul class="user-lists">
       <% current_user.lists.each do |list| %>
       <a href="/lists/<%= list.id %>"><li><%= list.name %></li></a>

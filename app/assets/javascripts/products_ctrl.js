@@ -6,6 +6,11 @@
       $http.get(window.location.pathname + '.json').then(function(response) {
         $scope.list = response.data;
         $scope.products = response.data.products;
+        var lastProduct = $scope.products[$scope.products.length - 1];
+        $http.post('/search.json', {input_search: lastProduct.retailer}).then(function(response) {
+          console.log('search results: ', response.data);
+          $scope.similarByRetailer = response.data;
+        });
         $scope.productCategories = response.data.product_categories;
       });
 
@@ -13,8 +18,6 @@
         $scope.filterCategory = inputProductCategory;
       };
 
-      
-      // $scope.filterCategory = "Watches";
 
       $scope.deleteProduct = function(inputProduct) {
         console.log(inputProduct.id);

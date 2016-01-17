@@ -1,21 +1,24 @@
 <div class="row">
-<div class="col l10"><h1>Lists by <%= current_user.username %> <span class="total-lists"><%= current_user.lists.length %></span></h1>
-</div>
-</div>
 
-<% if current_user && current_user.lists.length > 0 %>
-<div class="row">
-  <% current_user.lists.each do |list| %>
-  <div class="col l12">
-  <a href="/lists/<%= list.id %>"><h3><%= list.name %></h3></a> 
-  <p><em><%= list.products.length %> products</em></p>
-  <p><%= list.description %></p>
-  <% list.products.each do |product| %>
-    <div class="col l1 product-list">
-      <div class="product-image-list" style="background-image: url('<%= product.image_src %>');"></div>
-    </div>
-  <% end %>
+  <div>
+    <h1>Lists by <%= current_user.username %> <span class="total-lists"><%= current_user.lists.length %></span></h1>
   </div>
-  <% end %>
+
+  <div ng-app="app">
+    <div ng-controller="listCtrl" ng-init="setup()">
+      <div ng-repeat="list in lists">
+      <div class="col l12">
+        <a href="/lists/{{ list.id }}"><h3>{{ list.name }}</h3></a>
+        <p><em>{{ list.products.length }} products</em></p>
+        <p>{{ list.description }}</p>
+          <div ng-repeat="listProduct in list.products">
+            <div class="col l1 product-list">
+            <div class="product-image-list" style="background-image: url('{{ listProduct.image_src }}');"></div>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
 </div>
-<% end %>

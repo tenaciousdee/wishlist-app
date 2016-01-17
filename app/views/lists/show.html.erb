@@ -2,11 +2,21 @@
   <div class="col l12">
     <div ng-app="app">
       <div ng-controller="productsCtrl" ng-init="setup()">
+      <h2>You May Also Like:</h2>
+
+    <div class="row">
+      <div ng-repeat="similar in similarByRetailer">
+        <div class="col l1 product-list"><div class="product-image-list" style="background-image: url('{{ similar.image_url }}');"></div>
+        </div>
+      </div>
+      </div>
+
+
       <h2>{{ list.name }}</h2>
       <p>{{ list.description }}</p>
 
       <div ng-repeat="productCategory in productCategories">
-        <button class="btn-large left" ng-click="changeFilterCategory(productCategory)">{{ productCategory }}</button>
+        <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(productCategory)">{{ productCategory }}</button>
       </div>
 
     <div style="clear:both;">
