@@ -5,6 +5,8 @@ $bg_contain: contain;
 $bg_cover: cover;
 $center: center;
 $no_repeat: no-repeat;
+$both: both;
+$none: none;
 $full: 100%;
 $zero: 0;
 $half: 50%;
@@ -68,8 +70,8 @@ img {
 
 .front, .back {
   margin: auto;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: $hidden;
+  backface-visibility: $hidden;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 
   0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -155,12 +157,17 @@ img {
   }
 }
 
+.user-img {
+  clear: $both !important;
+  float: $none !important;
+  margin-top: 2em;
+}
+
 .profile {
   height: 10em;
   border-radius: $half;
   background-size: $bg_cover;
   background-position: $center;
-  clear: both;
 }
 
 .search-form {

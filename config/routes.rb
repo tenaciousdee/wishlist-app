@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   get '/' => 'products#index'
   get '/products' => 'products#index'
   get '/products/new' => 'products#new'
