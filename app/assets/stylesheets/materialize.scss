@@ -52,6 +52,15 @@ nav {
   height: 12em;
 }
 
+nav input[type=text] {
+  height: 1em;
+}
+
+nav .nav-wrapper i {
+  height: 36px;
+  line-height: 35px;
+}
+
 nav ul a {
   color: $link-color;
 }
@@ -103,8 +112,8 @@ nav ul a {
 
 .total-lists {
   color: $link-color;
-  padding: 0 .3em;
-  border-width: 2px;
+  padding: .1em .4em;
+  border-width: 1px;
   border-style: solid;
   border-radius: 50%;
 }

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   patch '/lists/:id' => 'lists#update'
   delete '/lists/:id' => 'lists#destroy'
 
+  post '/products_api/' => 'products#create_api'
   delete '/products_api/:id' => 'products#destroy_api'
 
   post '/added_products' => 'added_products#create'

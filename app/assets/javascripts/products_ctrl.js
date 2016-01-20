@@ -10,6 +10,7 @@
         $http.post('/search.json', {input_search: lastProduct.retailer}).then(function(response) {
           console.log('search results: ', response.data);
           $scope.similarByRetailer = response.data;
+          $scope.quantity = 10;
         });
         $scope.productCategories = response.data.product_categories;
       });
@@ -17,6 +18,17 @@
       $scope.changeFilterCategory = function(inputProductCategory) {
         $scope.filterCategory = inputProductCategory;
         $scope.filterAll = '';
+      };
+
+      $scope.addProduct = function(inputSimilar) {
+        console.log(inputSimilar.id);
+        $http.post('/products_api/', {
+          product_id: inputSimilar.id,
+          list_id: $scope.list.id
+        }).then(function(response) {
+          console.log(response);
+          $scope.products.push(response.data);
+        });
       };
 
 

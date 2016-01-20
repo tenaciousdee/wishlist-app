@@ -5,17 +5,28 @@
         <h3>You May Also Like:</h3>
 
         <div class="row">
-          <div ng-repeat="similar in similarByRetailer">
+          <div ng-repeat="similar in similarByRetailer | limitTo:quantity">
             <div class="col l1 product-list">
             <a class="modal-trigger" href="#modal{{ similar.id }}">
                 <div class="product-image-list" style="background-image: url('{{ similar.image_url }}');"></div>
               </a>
+
               <div id="modal{{ similar.id }}" class="modal">
                 <div class="modal-content">
-                  <h4>{{ similar.name }}</h4>
+                <div class="row">
+                <div class="col l6">
+                  <div class="product-modal" style="background-image: url('{{ similar.image_url }}'); height: 25em; background-repeat: no-repeat; background-position: center; background-size:contain;"></div>
                 </div>
+                <div class="col l6">
+                  <h4>{{ similar.name }}</h4>
+                  <p>${{ similar.price }}</p>
+                  </div>
+                  </div>
+                </div>
+
                 <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat">Close</a>
+                  <button ng-click="addProduct(similar)">Add to List</button>
                 </div>
               </div>
             </div>
@@ -26,10 +37,10 @@
         <h2>{{ list.name }}</h2>
         <p>{{ list.description }}</p>
 
-        <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(filterAll)">All</button>
         <div ng-repeat="productCategory in productCategories">
           <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(productCategory)">{{ productCategory }}</button>
         </div>
+        <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(filterAll)">All</button>
 
         <div style="clear:both;">
           <div ng-repeat="product in products | filter: {category: filterCategory}">

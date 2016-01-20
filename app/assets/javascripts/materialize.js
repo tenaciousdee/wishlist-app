@@ -2,8 +2,11 @@
 $(document).ready(function() {
   // TODO: Fix this hack
   setTimeout(function() {
-    $('select').material_select();
-    $(".button-collapse").sideNav();
     $('.modal-trigger').leanModal();
-  }, 2000);
+  }, 4000);
+});
+
+$(document).ready(function() {
+  $(".button-collapse").sideNav();
+  $('select').material_select();
 });

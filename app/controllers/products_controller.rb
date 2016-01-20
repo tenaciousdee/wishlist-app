@@ -41,6 +41,21 @@ class ProductsController < ApplicationController
     redirect_to "/lists/#{params[:list][:list_id]}"
   end
 
+    def create_api
+    product_id = params[:product_id]
+    product_data = Unirest.get("http://api.shopstyle.com/api/v2/products/#{params[:product_id]}?pid=uid9904-31996852-79").body
+    product = Product.create(
+      shopstyle_id: product_data["id"],
+      name: product_data["name"],
+      image_src: product_data["image"]["sizes"]["Original"]["url"],
+      retailer: product_data["retailer"] ? product_data["retailer"]["name"] : "no retailer",
+      brand: product_data["brand"] ? product_data["brand"]["name"] : "no brand",
+      category: product_data["categories"][0]["name"] || "no category",
+      list_id: params[:list_id]
+      )
+    render json: product
+  end
+
   def show
     @product = Unirest.get("http://api.shopstyle.com/api/v2/products/#{params[:id]}?pid=uid9904-31996852-79").body
     @lists = List.all
