@@ -1,0 +1,1 @@
+json.array! @public_lists, partial: 'list', as: :list

@@ -7,10 +7,12 @@
         <% if current_user %>
       <li><a href="/lists">My Lists</a></li>
       <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+      <li><a href="/public">Community Lists</a></li>
       <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
       <% else %>
       <li><a href="/users/sign_in">Sign In</a></li>
       <li><a href="/users/sign_up">Create an Account</a></li>
+      <li><a href="/public">Community Lists</a></li>
       <% end %>
       </ul>
 
@@ -18,16 +20,18 @@
       <% if current_user %>
       <li><a href="/lists">My Lists</a></li>
       <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+      <li><a href="/public">Community Lists</a></li>
       <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
       <% else %>
       <li><a href="/users/sign_in">Sign In</a></li>
       <li><a href="/users/sign_up">Create an Account</a></li>
+      <li><a href="/public">Community Lists</a></li>
       <% end %>
     </ul>
 
     <% if ! @products && ! @search %>
     <div class="row">
-    <div class="col l3 col m12 col s12 right">
+    <div class="col l3 col m12 col s12 right hide-on-med-and-down">
     <!-- Search form begins -->
       <h5 class="grey-text search-text"><strong>Search for Products</strong></h5>
 

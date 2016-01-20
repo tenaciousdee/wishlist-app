@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="coll12">
+    <div ng-app="app">
+      <div ng-controller="publicListCtrl" ng-init="setup()">
+        <h2>{{ publicList.name }}</h2>
+        <p>{{ publicList.description }}</p>
+        <div ng-repeat="product in publicProducts">
+          <div class="product col l4 m6 s12">
+            <a href="/products/{{ product.shopstyle_id }}"><div class="product-image" style="background-image: url('{{ product.image_src }}');"></div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

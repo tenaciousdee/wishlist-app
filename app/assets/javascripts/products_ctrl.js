@@ -11,6 +11,7 @@
           console.log('search results: ', response.data);
           $scope.similarByRetailer = response.data;
           $scope.quantity = 10;
+          $scope.results = response.data > 0;
         });
         $scope.productCategories = response.data.product_categories;
       });

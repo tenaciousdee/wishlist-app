@@ -1,5 +1,8 @@
 json.id list.id
+json.public list.public
 json.name list.name
+json.username list.user.username
+json.userImage list.user.image.url
 json.description list.description
 json.userId list.user_id
 json.products list.products

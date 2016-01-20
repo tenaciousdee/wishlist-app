@@ -37,6 +37,14 @@ class ListsController < ApplicationController
     redirect_to "/lists"
   end
 
+  def public_lists
+    @public_lists = List.where(public: true)
+  end
+
+  def public_show
+    @public_list = List.find_by(id: params[:id])
+  end
+
   private
 
   def list_params
