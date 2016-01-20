@@ -2,7 +2,19 @@
   <div class="nav-wrapper">
     <a href="/" class="brand-logo center"><h1 class="grey-text"><strong>Ooh, Gimme</strong></h1></a>
     <a href="#" data-activates="nav-mobile" class="button-collapse grey-text"><i class="material-icons grey-text">menu</i></a>
-    <ul id="nav-mobile" class="top-nav left hide-on-med-and-down">
+
+    <ul class="side-nav" id="nav-mobile">
+        <% if current_user %>
+      <li><a href="/lists">My Lists</a></li>
+      <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+      <li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
+      <% else %>
+      <li><a href="/users/sign_in">Sign In</a></li>
+      <li><a href="/users/sign_up">Create an Account</a></li>
+      <% end %>
+      </ul>
+
+    <ul class="top-nav left hide-on-med-and-down">
       <% if current_user %>
       <li><a href="/lists">My Lists</a></li>
       <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
@@ -12,8 +24,10 @@
       <li><a href="/users/sign_up">Create an Account</a></li>
       <% end %>
     </ul>
+
+    <% if ! @products && ! @search %>
     <div class="row">
-    <div class="col l3 right">
+    <div class="col l3 col m12 col s12 right">
     <!-- Search form begins -->
       <h5 class="grey-text search-text"><strong>Search for Products</strong></h5>
 
@@ -25,5 +39,6 @@
       <!-- Search form ends -->
       </div>
       </div>
+      <% end %>
   </div>
 </nav>
