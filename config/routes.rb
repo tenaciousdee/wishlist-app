@@ -21,6 +21,9 @@ Rails.application.routes.draw do
 
   get '/public' => 'lists#public_lists'
   get '/public/:id' => 'lists#public_show'
+  patch '/public/:id' => 'lists#public_update'
+
+  post '/public' => 'products#create_public'
 
   post '/products_api/' => 'products#create_api'
   delete '/products_api/:id' => 'products#destroy_api'

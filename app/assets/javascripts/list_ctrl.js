@@ -8,6 +8,13 @@
       });
     };
 
+    $scope.makePublic = function(inputList) {
+      console.log(inputList);
+      $http.patch('/public/' + inputList.id).then(function(response) {
+        console.log(response.data);
+      });
+    };
+
     window.$scope = $scope;
 
   });

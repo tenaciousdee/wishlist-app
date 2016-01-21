@@ -56,6 +56,22 @@ class ProductsController < ApplicationController
     render json: product
   end
 
+  def create_public
+    product_id = params[:product_id]
+    list_id = params[:list_id]
+    new_product = Product.find_by(id: product_id)
+    product = Product.create(
+      shopstyle_id: new_product.shopstyle_id,
+      name: new_product.name,
+      image_src: new_product.image_src,
+      retailer: new_product.retailer,
+      brand: new_product.brand,
+      category: new_product.category,
+      list_id: list_id
+      )
+    render json: product
+  end
+
   def show
     @product = Unirest.get("http://api.shopstyle.com/api/v2/products/#{params[:id]}?pid=uid9904-31996852-79").body
     @lists = List.all

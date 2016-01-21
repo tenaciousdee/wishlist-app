@@ -2,11 +2,15 @@
   <div class="coll12">
     <div ng-app="app">
       <div ng-controller="publicListCtrl" ng-init="setup()">
-        <h2>{{ publicList.name }}</h2>
+        <h2>{{ publicList.username }}: {{ publicList.name }}</h2>
         <p>{{ publicList.description }}</p>
         <div ng-repeat="product in publicProducts">
           <div class="product col l4 m6 s12">
             <a href="/products/{{ product.shopstyle_id }}"><div class="product-image" style="background-image: url('{{ product.image_src }}');"></div></a>
+              <select name="listSelect" id="listSelect" ng-model="listSelect" ng-change="showSelectValue(listSelect)">
+                <option ng-repeat="list in myLists" value="{{list.id}}">{{list.name}}</option>
+              </select>
+            <button class="btn-large" ng-click="addProduct(product, list)"><i class="material-icons">add</i></button>
           </div>
         </div>
       </div>

@@ -45,6 +45,14 @@ class ListsController < ApplicationController
     @public_list = List.find_by(id: params[:id])
   end
 
+  def public_update
+    list = List.find_by(id: params[:id])
+    list.update(
+      public: true
+      )
+    render json: { message: "Hello!" }
+  end
+
   private
 
   def list_params

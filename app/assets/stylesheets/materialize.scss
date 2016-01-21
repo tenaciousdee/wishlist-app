@@ -53,7 +53,7 @@ nav {
 }
 
 nav input[type=text] {
-  height: 1em;
+  height: 2em;
 }
 
 nav .nav-wrapper i {
@@ -63,6 +63,12 @@ nav .nav-wrapper i {
 
 nav ul a {
   color: $link-color;
+}
+
+nav ul a:hover, nav ul a.active, 
+nav ul a:focus {
+  background: $secondary-color;
+  color: #fff;
 }
 
 .home-search input[type=text] {
@@ -85,8 +91,8 @@ nav ul a {
 }
 
 .list-names {
-  border-top: 5px solid $link-color;
   padding: 2em 0;
+  border-top: 5px solid $link-color;
 }
 
 .title {
@@ -116,4 +122,8 @@ nav ul a {
   border-width: 1px;
   border-style: solid;
   border-radius: 50%;
+}
+
+#listSelect {
+  display: block;
 }

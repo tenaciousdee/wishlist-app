@@ -8,17 +8,20 @@
     <div ng-controller="listCtrl" ng-init="setup()">
       <div ng-repeat="list in lists">
         <div class="col l12">
-          <a href="/lists/{{ list.id }}"><h3>{{ list.name }}</h3></a>
-          <p><em>{{ list.products.length }} products</em></p>
-          <p>{{ list.description }}</p>
-          <div ng-repeat="listProduct in list.products">
-            <div class="col l1 product-list">
-              <div class="product-image-list" style="background-image: url('{{ listProduct.image_src }}');"></div>
+          <div class="row">
+            <a href="/lists/{{ list.id }}">
+              <h3>{{ list.name }}</h3></a>
+              <a href="#" ng-click="makePublic(list)"><i class="material-icons grey-text">star_border</i> Make this list public</a>
+              <p><em>{{ list.products.length }} products</em></p>
+              <p>{{ list.description }}</p>
+              <div ng-repeat="listProduct in list.products">
+                <div class="col l1 product-list">
+                  <div class="product-image-list" style="background-image: url('{{ listProduct.image_src }}');"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  </div>
+    </div>
