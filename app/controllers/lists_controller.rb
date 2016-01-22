@@ -34,7 +34,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find_by(id: params[:id])
     @list.destroy
-    redirect_to "/lists"
+    render json: { message: "List is now deleted" }
   end
 
   def public_lists
@@ -50,7 +50,7 @@ class ListsController < ApplicationController
     list.update(
       public: true
       )
-    render json: { message: "Hello!" }
+    render json: { message: "List is now public!" }
   end
 
   private

@@ -13,8 +13,8 @@
             <a href="/lists/{{ list.id }}">
               <h3 class="grey-text list-title">{{ list.name }}</h3></a>
 
-              <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Make this list public" href="#" ng-if="list.public == null" ng-click="makePublic(list)"><i class="material-icons">visibility_off</i>
-              <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Remove this list from public" href="#" ng-if="list.public == true" ng-click="makePublic(list)"><i class="material-icons grey-text">visibility</i></a>
+              <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Make this list public" href="#" ng-if="!list.public" ng-click="makePublic(list)"><i class="material-icons">visibility_off</i>
+              <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Remove this list from public" href="#" ng-if="list.public" ng-click="makePublic(list)"><i class="material-icons grey-text">visibility</i></a>
 
               <p>{{ list.description }}</p>
               <p><em>{{ list.products.length }} products</em></p>
@@ -23,6 +23,7 @@
                   <div class="product-image-list" style="background-image: url('{{ listProduct.image_src }}');"></div>
                 </div>
               </div>
+       <a href="#" ng-click="deleteList(list)"><p>Delete List</p></a>
             </div>
           </div>
         </div>

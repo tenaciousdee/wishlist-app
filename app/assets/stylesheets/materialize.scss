@@ -138,6 +138,7 @@ nav ul a:focus {
   border-top: 10px solid $secondary-color;
   background: #f8f8f8;
   max-height: 32em;
+  min-height: 32em;
 }
 
 .listings:first-child {
