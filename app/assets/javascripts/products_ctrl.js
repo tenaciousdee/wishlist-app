@@ -1,6 +1,6 @@
 /* global angular */
 (function() {
-  angular.module("app").controller("productsCtrl", function($scope, $http) {
+  angular.module("app").controller("productsCtrl", ['$scope', '$http', function($scope, $http) {
     $scope.setup = function() {
       console.log(window.location.pathname);
       $http.get(window.location.pathname + '.json').then(function(response) {
@@ -44,5 +44,5 @@
 
       window.$scope = $scope;
     };
-  });
+  }]);
 })();

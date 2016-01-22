@@ -1,6 +1,6 @@
 /* global angular */
 (function() {
-  angular.module("app").controller("publicCtrl", function($scope, $http) {
+  angular.module("app").controller("publicCtrl", ['$scope', '$http', function($scope, $http) {
     $scope.setup = function() {
       $http.get("/public.json").then(function(response) {
         $scope.publicLists = response.data;
@@ -10,6 +10,6 @@
 
       window.$scope = $scope;
     };
-  });
+  }]);
 
 })();

@@ -1,6 +1,6 @@
 /* global angular */
 (function() {
-  angular.module("app").controller("publicListCtrl", function($scope, $http) {
+  angular.module("app").controller("publicListCtrl", ['$scope', '$http', function($scope, $http) {
     $scope.setup = function() {
       $http.get(window.location.pathname + '.json').then(function(response) {
         console.log(response.data);
@@ -25,5 +25,5 @@
 
       window.$scope = $scope;
     };
-  });
+  }]);
 })();
