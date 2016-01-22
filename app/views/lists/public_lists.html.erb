@@ -1,24 +1,26 @@
 <div class="row">
-<h2>Public Lists Feed</h2>
+  <h2>Community Lists</h2>
   <div ng-app="app">
     <div ng-controller="publicCtrl" ng-init="setup()">
       <div ng-repeat="public in publicLists">
-        <div class="col l12">
-        <div class="col l1">
-        <img class="img-responsive" src="{{ public.userImage }}">
-        </div>
-        <div class="col l11 list-hdr">
-        <a href="/public/{{ public.id }}"><h3>{{ public.username }}: {{ public.name }}</h3></a>
-        </div>
-         <p><em>{{ public.products.length }} products</em></p>
-         <p>{{ public.description }}</p>
-         <div ng-repeat="publicProduct in public.products">
-          <div class="col l1 product-list">
-            <div class="product-image-list" style="background-image: url('{{ publicProduct.image_src }}');"></div>
+        <div class="col l4">
+          <div class="row listings">
+            <div class="col l3">
+              <img class="img-responsive" src="{{ public.userImage }}">
+            </div>
+            <div class="col l11 list-hdr">
+              <a href="/public/{{ public.id }}"><h3 class="list-title">{{ public.username }}: {{ public.name }}</h3></a>
+            </div>
+            <p>{{ public.description }}</p>
+          <!--   <p><em>{{ public.products.length }} products</em></p> -->
+            <div ng-repeat="publicProduct in public.products | limitTo:quantity">
+              <div class="col l3 product-list">
+                <div class="product-image-list" style="background-image: url('{{ publicProduct.image_src }}');"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

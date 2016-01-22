@@ -8,11 +8,18 @@
       });
     };
 
+    $scope.quantity = 8;
+
+    // $scope.makePublic = function(inputList) {
+    //   console.log(inputList);
+    //   $http.patch('/public/' + inputList.id).then(function(response) {
+    //     console.log(response.data);
+    //   });
+    // };
+
     $scope.makePublic = function(inputList) {
       console.log(inputList);
-      $http.patch('/public/' + inputList.id).then(function(response) {
-        console.log(response.data);
-      });
+      $scope.inputList.public = !$scope.inputList.public;
     };
 
     window.$scope = $scope;

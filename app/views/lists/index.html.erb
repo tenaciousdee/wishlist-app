@@ -1,26 +1,31 @@
 <div class="row">
 
-  <div>
+<!--   <div>
     <h1>Lists by <%= current_user.username %></h1>
-  </div>
+  </div> -->
 
   <div ng-app="app">
     <div ng-controller="listCtrl" ng-init="setup()">
+    <div class="row">
       <div ng-repeat="list in lists">
-        <div class="col l12">
-          <div class="row">
+        <div class="col l4">
+          <div class="row listings">
             <a href="/lists/{{ list.id }}">
-              <h3>{{ list.name }}</h3></a>
-              <a href="#" ng-click="makePublic(list)"><i class="material-icons grey-text">star_border</i> Make this list public</a>
-              <p><em>{{ list.products.length }} products</em></p>
+              <h3 class="grey-text list-title">{{ list.name }}</h3></a>
+
+              <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Make this list public" href="#" ng-if="list.public == null" ng-click="makePublic(list)"><i class="material-icons">visibility_off</i>
+              <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Remove this list from public" href="#" ng-if="list.public == true" ng-click="makePublic(list)"><i class="material-icons grey-text">visibility</i></a>
+
               <p>{{ list.description }}</p>
-              <div ng-repeat="listProduct in list.products">
-                <div class="col l1 product-list">
+              <p><em>{{ list.products.length }} products</em></p>
+              <div ng-repeat="listProduct in list.products | limitTo:quantity">
+                <div class="col l3 product-list">
                   <div class="product-image-list" style="background-image: url('{{ listProduct.image_src }}');"></div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
 

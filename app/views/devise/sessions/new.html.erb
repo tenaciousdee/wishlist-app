@@ -1,12 +1,12 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <i class="material-icons left">email</i><div class="field">
+  <i class="material-icons left grey-text">email</i><div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <i class="material-icons left">lock</i><div class="field">
+  <i class="material-icons left grey-text">lock</i><div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>

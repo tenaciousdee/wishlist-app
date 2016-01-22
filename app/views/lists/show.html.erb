@@ -2,7 +2,7 @@
   <div class="col l12">
     <div ng-app="app">
       <div ng-controller="productsCtrl" ng-init="setup()">
-        <h3>You May Also Like:</h3>
+        <h3 ng-if="similarByRetailer.length > 0">You May Also Like:</h3>
 
         <div class="row">
           <div ng-repeat="similar in similarByRetailer | limitTo:quantity">
@@ -24,9 +24,9 @@
                   </div>
                 </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer white">
                   <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat">Close</a>
-                  <button ng-click="addProduct(similar)">Add to List</button>
+                  <button class="btn-flat" ng-click="addProduct(similar)">Add to List</button>
                 </div>
               </div>
             </div>
@@ -37,16 +37,16 @@
         <h2>{{ list.name }}</h2>
         <p>{{ list.description }}</p>
 
+        <button class="grey-text white filter left waves-effect waves-light" ng-if="productCategories.length > 0" ng-click="changeFilterCategory(filterAll)">All</button>
         <div ng-repeat="productCategory in productCategories">
-          <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(productCategory)">{{ productCategory }}</button>
+          <button class="grey-text white filter left waves-effect waves-light" ng-click="changeFilterCategory(productCategory)">{{ productCategory }}</button>
         </div>
-        <button class="btn-large left waves-effect waves-light" ng-click="changeFilterCategory(filterAll)">All</button>
 
         <div style="clear:both;">
-          <div ng-repeat="product in products | filter: {category: filterCategory}">
+          <div ng-repeat="product in products | filter: {category: filterCategory} track by $index">
             <div class="product col l4 m6 s12">
+            <a href="#" ng-click="deleteProduct(product)"><i class="material-icons red-text text-lighten-4 right">cancel</i></a>
               <a href="/products/{{ product.shopstyle_id }}"><div class="product-image" style="background-image: url('{{ product.image_src }}');"></div></a>
-              <button class="btn-large" ng-click="deleteProduct(product)">Delete Product</button>
             </div>
           </div>
         </div>

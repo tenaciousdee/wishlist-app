@@ -7,6 +7,7 @@
 $primary-color: color("grey", "base") !default;
 $link-color: color("grey", "darken-3") !default;
 $secondary-color: color("materialize-red", "lighten-4") !default;
+$accent-color: color("white", "base") !default;
 
 // Variables
 @import "materialize/components/variables";
@@ -92,7 +93,11 @@ nav ul a:focus {
 
 .list-names {
   padding: 2em 0;
-  border-top: 5px solid $link-color;
+}
+
+.welcome {
+  border-bottom: 5px solid $link-color;
+  padding-bottom: 1em;
 }
 
 .title {
@@ -124,6 +129,41 @@ nav ul a:focus {
   border-radius: 50%;
 }
 
-#listSelect {
+.listSelect {
   display: block;
+}
+
+.listings {
+  padding: .5em 1em 7em;
+  border-top: 10px solid $secondary-color;
+  background: #f8f8f8;
+  max-height: 32em;
+}
+
+.listings:first-child {
+  margin-top: 2em;
+}
+
+.list-title {
+  display: inline-block;
+  font-weight: bold;
+  // letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.product-image-list {
+  border: 4px solid $primary-color;
+}
+
+.listings i {
+  font-size: 2.5em;
+}
+
+.filter {
+  border: 3px solid $primary-color;
+  overflow: hidden;
+  outline: none;
+  font-weight: bold;
+  margin: 0 .5em .5em 0;
+  padding: .5em 1.5em;
 }

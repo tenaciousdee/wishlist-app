@@ -14,6 +14,7 @@ $(document).ready(function() {
   // TODO: Fix this hack
   setTimeout(function() {
     $('.modal-trigger').leanModal();
+    $('.tooltipped').tooltip({delay: 10});
   }, 4000);
 });
 
