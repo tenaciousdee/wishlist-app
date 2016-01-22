@@ -25,9 +25,14 @@ img {
   max-width: $full;
 }
 
+.full {
+  width: $full;
+}
+
 .hero {
   background-image: image-url("<%= asset_path('geo.svg') %>");
-  height: 40em;
+  min-height: 40em;
+  max-height: 55em;
   background-repeat: $no_repeat;
   background-size: $bg_cover;
   background-position: top;
