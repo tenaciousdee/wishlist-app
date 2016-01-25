@@ -5,11 +5,11 @@
       <div ng-repeat="public in publicLists">
         <div class="col l4">
           <div class="row listings">
-            <div class="col l3">
+            <div class="col l4">
               <img class="img-responsive" src="{{ public.userImage }}">
             </div>
             <div class="col l11 list-hdr">
-              <a href="/public/{{ public.id }}"><h3 class="list-title">{{ public.username }}: {{ public.name }}</h3></a>
+              <a href="/public/{{ public.id }}"><h4 class="list-title">{{ public.username }}: {{ public.name }}</h4></a>
             </div>
             <p>{{ public.description }}</p>
           <!--   <p><em>{{ public.products.length }} products</em></p> -->
