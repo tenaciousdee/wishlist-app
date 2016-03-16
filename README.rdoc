@@ -12,6 +12,4 @@ Wishlist App utilizing the Shopstyle API
 
 * Shopsense-Ruby Gem
 
-```ruby
 bundle install
-```
