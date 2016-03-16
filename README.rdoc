@@ -1,17 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Wishlist App utilizing the Shopstyle API
 
-Things you may want to cover:
+* Ruby on Rails backend
 
-* Ruby version
+* AngularJS frontend (for the most part)
 
-* System dependencies
+* Postgres DB
 
-* Configuration
-
-* Database creation
+* MaterializeCSS
 
 * Database initialization
 
