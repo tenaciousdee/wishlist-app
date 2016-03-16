@@ -11,5 +11,3 @@ Wishlist App utilizing the Shopstyle API
 * MaterializeCSS
 
 * Shopsense-Ruby Gem
-
-bundle install
